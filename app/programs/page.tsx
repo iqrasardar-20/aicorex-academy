@@ -3,16 +3,19 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  ArrowUpRight,
   BarChart3,
   BriefcaseBusiness,
   Globe,
   LineChart,
   Search,
+  Sparkles,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const programs = [
   {
+    number: "01",
     title: "ERP Systems",
     category: "SAP • Oracle • Odoo",
     description:
@@ -21,6 +24,7 @@ const programs = [
     href: "/programs/erp",
   },
   {
+    number: "02",
     title: "PSX",
     category: "Financial Markets",
     description:
@@ -29,6 +33,7 @@ const programs = [
     href: "/psx",
   },
   {
+    number: "03",
     title: "Forex",
     category: "Financial Markets",
     description:
@@ -37,6 +42,7 @@ const programs = [
     href: "/forex",
   },
   {
+    number: "04",
     title: "SEO",
     category: "Digital Skills",
     description:
@@ -45,6 +51,7 @@ const programs = [
     href: "/seo",
   },
   {
+    number: "05",
     title: "E-Commerce",
     category: "Shopify • Daraz • eBay",
     description:
@@ -56,296 +63,307 @@ const programs = [
 
 export default function ProgramsPage() {
   return (
-    <>
-      {/* Navbar */}
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-          <Link
-            href="/"
-            className="text-2xl font-bold tracking-tight text-slate-900"
-          >
-            AicoreX<span className="text-blue-600">.</span>
-          </Link>
+    <main className="overflow-hidden bg-white">
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-slate-950 px-6 pb-24 pt-36 text-white lg:px-8 lg:pb-28">
+        {/* Background glow */}
+        <div className="absolute -left-40 top-10 h-96 w-96 rounded-full bg-blue-600/20 blur-[120px]" />
+        <div className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-indigo-600/20 blur-[120px]" />
 
-          <div className="hidden items-center gap-8 md:flex">
-            <Link
-              href="/"
-              className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
-            >
-              Home
-            </Link>
+        {/* Grid */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
+            backgroundSize: "55px 55px",
+          }}
+        />
 
-            <Link
-              href="/about"
-              className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
-            >
-              About
-            </Link>
-
-            <Link
-              href="/programs"
-              className="text-sm font-medium text-blue-600"
-            >
-              Training Programs
-            </Link>
-
-            <Link
-              href="/contact"
-              className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
-            >
-              Contact
-            </Link>
-
-            <Link
-              href="/contact"
-              className="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-            >
-              Enroll Now
-            </Link>
-          </div>
-        </div>
-      </nav>
-
-      <main className="bg-white">
-        {/* Hero */}
-        <section className="bg-slate-950 px-6 pb-20 pt-36 text-white lg:px-8">
-          <div className="mx-auto max-w-5xl text-center">
+        <div className="relative mx-auto max-w-7xl">
+          <div className="mx-auto max-w-3xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-                Training Programs
-              </p>
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-300">
+                <Sparkles size={14} />
+                Professional Training
+              </div>
 
-              <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
                 Build Skills That
                 <span className="block text-blue-400">
-                  Create Opportunities
+                  Create Opportunities.
                 </span>
               </h1>
 
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                Explore our professional training programs and develop
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+                Explore focused training programs designed to help you develop
                 practical skills for your career, business and future.
               </p>
             </motion.div>
           </div>
-        </section>
 
-        {/* Programs */}
-        <section className="bg-slate-50 py-24">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mx-auto max-w-2xl text-center"
-            >
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-                What We Offer
+          {/* Hero mini stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mx-auto mt-14 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-3"
+          >
+            <div className="rounded-2xl border border-white/10 bg-white/[0.05] px-5 py-5 text-center backdrop-blur-sm">
+              <p className="text-2xl font-black text-white">5+</p>
+              <p className="mt-1 text-xs font-medium text-slate-400">
+                Training Programs
               </p>
+            </div>
 
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                Explore Our Programs
+            <div className="rounded-2xl border border-white/10 bg-white/[0.05] px-5 py-5 text-center backdrop-blur-sm">
+              <p className="text-2xl font-black text-white">4+</p>
+              <p className="mt-1 text-xs font-medium text-slate-400">
+                Skill Areas
+              </p>
+            </div>
+
+            <div className="col-span-2 rounded-2xl border border-white/10 bg-white/[0.05] px-5 py-5 text-center backdrop-blur-sm sm:col-span-1">
+              <p className="text-2xl font-black text-white">Practical</p>
+              <p className="mt-1 text-xs font-medium text-slate-400">
+                Learning Approach
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Programs Section */}
+      <section className="relative overflow-hidden bg-slate-50 py-24 lg:py-32">
+        <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-blue-500/5 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-indigo-500/5 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          {/* Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end"
+          >
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-600 shadow-sm">
+                <Sparkles size={14} />
+                What We Offer
+              </div>
+
+              <h2 className="mt-5 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
+                Explore Our
+                <span className="text-blue-600"> Training Programs</span>
               </h2>
 
-              <p className="mt-5 text-lg leading-8 text-slate-600">
-                Choose from our focused training categories and start
-                developing skills that matter in today&apos;s economy.
+              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600 sm:text-lg">
+                Choose a focused learning path and develop valuable skills
+                that can help you move toward your professional goals.
               </p>
-            </motion.div>
+            </div>
 
-            {/* Cards */}
-            <div className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-              {programs.map((program, index) => {
-                const Icon = program.icon;
+            <div className="hidden lg:block">
+              <p className="text-right text-sm font-semibold text-slate-400">
+                05
+                <span className="mx-2 text-slate-300">/</span>
+                PROGRAMS
+              </p>
+            </div>
+          </motion.div>
 
-                return (
-                  <motion.div
-                    key={program.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.5,
-                      delay: index * 0.08,
-                    }}
-                    className="group rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-                  >
-                    {/* Icon */}
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
-                      <Icon size={27} />
+          {/* Cards */}
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {programs.map((program, index) => {
+              const Icon = program.icon;
+
+              return (
+                <motion.div
+                  key={program.title}
+                  initial={{ opacity: 0, y: 35 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-70px" }}
+                  transition={{
+                    duration: 0.55,
+                    delay: index * 0.08,
+                  }}
+                  className="group relative"
+                >
+                  <div className="relative h-full overflow-hidden rounded-[26px] border border-slate-200 bg-white p-7 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-900/10 sm:p-8">
+                    {/* Number */}
+                    <div className="absolute right-7 top-7 text-xs font-black tracking-[0.2em] text-slate-200 transition-colors duration-300 group-hover:text-blue-100">
+                      {program.number}
                     </div>
 
-                    {/* Title */}
-                    <h3 className="mt-7 text-2xl font-bold text-slate-900">
-                      {program.title}
-                    </h3>
+                    {/* Icon */}
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-blue-600/20">
+                      <Icon size={26} strokeWidth={2} />
+                    </div>
 
-                    {/* Category */}
-                    <p className="mt-2 text-sm font-semibold text-blue-600">
-                      {program.category}
-                    </p>
+                    {/* Content */}
+                    <div className="mt-7">
+                      <h3 className="text-xl font-extrabold tracking-tight text-slate-950 sm:text-2xl">
+                        {program.title}
+                      </h3>
 
-                    {/* Description */}
-                    <p className="mt-5 text-sm leading-7 text-slate-600">
-                      {program.description}
-                    </p>
+                      <p className="mt-2 text-sm font-bold text-blue-600">
+                        {program.category}
+                      </p>
 
-                    {/* Button */}
+                      <p className="mt-4 text-sm leading-7 text-slate-600">
+                        {program.description}
+                      </p>
+                    </div>
+
+                    {/* Link */}
                     <Link
                       href={program.href}
-                      className="mt-8 inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-600"
+                      className="group/link mt-7 inline-flex items-center gap-2 text-sm font-bold text-slate-950 transition-colors duration-300 hover:text-blue-600"
                     >
                       View Program
-                      <ArrowRight size={16} />
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
 
-        {/* CTA */}
-        <section className="bg-white py-20">
-          <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 transition-all duration-300 group-hover/link:bg-blue-600 group-hover/link:text-white">
+                        <ArrowUpRight
+                          size={16}
+                          className="transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                        />
+                      </span>
+                    </Link>
+
+                    {/* Hover glow */}
+                    <div className="pointer-events-none absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-blue-500/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Learning Path */}
+      <section className="bg-white py-24 lg:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                Ready to Start Learning?
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
+                Your Learning Path
+              </div>
+
+              <h2 className="mt-5 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+                Learn With a
+                <span className="text-blue-600"> Clear Direction.</span>
               </h2>
 
-              <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                Choose a training program and take the next step toward
-                building valuable professional skills.
+              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
+                Every program is structured around understanding the
+                fundamentals, developing practical knowledge and building
+                confidence to apply what you learn.
               </p>
 
               <Link
                 href="/contact"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 font-semibold text-white transition hover:bg-blue-700"
+                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600"
               >
-                Enroll Now
-                <ArrowRight size={18} />
+                Discuss Your Goals
+                <ArrowRight
+                  size={17}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
               </Link>
             </motion.div>
-          </div>
-        </section>
-      </main>
 
-      {/* Footer */}
-      <footer className="bg-slate-950 text-white">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-          <div className="grid gap-10 md:grid-cols-3">
-            {/* Brand */}
-            <div>
-              <Link
-                href="/"
-                className="text-2xl font-bold tracking-tight"
-              >
-                AicoreX<span className="text-blue-500">.</span>
-              </Link>
-
-              <p className="mt-4 max-w-sm text-sm leading-7 text-slate-400">
-                Professional training designed to help learners build
-                practical skills and create new career opportunities.
-              </p>
-            </div>
-
-            {/* Links */}
-            <div>
-              <h3 className="font-semibold">Quick Links</h3>
-
-              <div className="mt-4 flex flex-col gap-3 text-sm text-slate-400">
-                <Link
-                  href="/"
-                  className="transition hover:text-white"
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid gap-4 sm:grid-cols-3"
+            >
+              {[
+                {
+                  number: "01",
+                  title: "Choose",
+                  text: "Select a program that matches your goals.",
+                },
+                {
+                  number: "02",
+                  title: "Learn",
+                  text: "Build knowledge through structured training.",
+                },
+                {
+                  number: "03",
+                  title: "Grow",
+                  text: "Apply your skills toward new opportunities.",
+                },
+              ].map((step) => (
+                <div
+                  key={step.number}
+                  className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
                 >
-                  Home
-                </Link>
+                  <span className="text-xs font-black tracking-widest text-blue-600">
+                    {step.number}
+                  </span>
 
-                <Link
-                  href="/about"
-                  className="transition hover:text-white"
-                >
-                  About Us
-                </Link>
+                  <h3 className="mt-4 font-extrabold text-slate-950">
+                    {step.title}
+                  </h3>
 
-                <Link
-                  href="/programs"
-                  className="transition hover:text-white"
-                >
-                  Training Programs
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className="transition hover:text-white"
-                >
-                  Contact
-                </Link>
-              </div>
-            </div>
-
-            {/* Programs */}
-            <div>
-              <h3 className="font-semibold">Our Programs</h3>
-
-              <div className="mt-4 flex flex-col gap-3 text-sm text-slate-400">
-                <Link
-                  href="/programs/erp"
-                  className="transition hover:text-white"
-                >
-                  ERP — SAP • Oracle • Odoo
-                </Link>
-
-                <Link
-                  href="/psx"
-                  className="transition hover:text-white"
-                >
-                  PSX
-                </Link>
-
-                <Link
-                  href="/forex"
-                  className="transition hover:text-white"
-                >
-                  Forex
-                </Link>
-
-                <Link
-                  href="/seo"
-                  className="transition hover:text-white"
-                >
-                  SEO
-                </Link>
-
-                <Link
-                  href="/ecommerce"
-                  className="transition hover:text-white"
-                >
-                  E-Commerce — Shopify • Daraz • eBay
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom */}
-          <div className="mt-12 border-t border-white/10 pt-7 text-center text-sm text-slate-500">
-            <p>
-              © {new Date().getFullYear()} AicoreX Academy. All rights
-              reserved.
-            </p>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {step.text}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
-      </footer>
-    </>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-slate-50 px-6 py-20 lg:px-8 lg:py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-7xl overflow-hidden rounded-[32px] bg-slate-950 px-7 py-14 text-center shadow-2xl sm:px-12 lg:py-16"
+        >
+          <div className="mx-auto max-w-2xl">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600/15 text-blue-400">
+              <Sparkles size={22} />
+            </div>
+
+            <h2 className="mt-6 text-3xl font-black tracking-tight text-white sm:text-4xl">
+              Ready to Start Learning?
+            </h2>
+
+            <p className="mt-4 text-sm leading-7 text-slate-400 sm:text-base">
+              Choose a training program and take the next step toward
+              developing valuable professional skills.
+            </p>
+
+            <Link
+              href="/contact"
+              className="group mt-7 inline-flex items-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500"
+            >
+              Enroll Now
+              <ArrowRight
+                size={17}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
+          </div>
+        </motion.div>
+      </section>
+    </main>
   );
 }
